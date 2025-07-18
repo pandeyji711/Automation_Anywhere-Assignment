@@ -1,44 +1,30 @@
 /// <reference types = "cypress"/>
 
 import testData from "../fixtures/data.json";
+import LoginPage from "../pages/LoginPage";
 
-describe("login test", () => {
-  before(() => {
-    cy.visit("https://community.cloud.automationanywhere.digital");
-  });
-  it("with invalid credencials", () => {
-    cy.get(".textinput-cell-input-control", { timeout: 10000 })
-      .first()
-      .should("be.visible")
-      .type("abcd");
-    cy.get("[name='password']", { timeout: 10000 })
-      .should("be.visible")
-      .type("12345");
-    cy.get("[name ='submitLogin']", { timeout: 2000 })
-      .should("be.visible")
-      .click();
-    cy.wait(5000);
-  });
-});
-describe("login test", () => {
-  before(() => {
-    cy.visit("https://community.cloud.automationanywhere.digital");
+const loginPage = new LoginPage();
+
+describe("Login Tests", () => {
+  beforeEach(() => {
+    loginPage.visit();
   });
 
-  it("with valid credencials", () => {
-    cy.get(".textinput-cell-input-control", { timeout: 10000 })
-      .first()
-      .should("be.visible")
-      .type(testData.username);
-    cy.get("[name='password']", { timeout: 10000 })
-      .should("be.visible")
-      .type(testData.password);
-    cy.get("[name ='submitLogin']", { timeout: 2000 })
-      .should("be.visible")
-      .click();
-    cy.wait(5000);
-    cy.get('button[name="mysettings"]').click();
-    cy.wait(2000);
-    cy.contains("button", "Log out").click();
+  it("Login with invalid credentials", () => {
+    loginPage.fillUsername("abcd");
+    loginPage.fillPassword("12345");
+    loginPage.submit();
+    cy.wait(3000);
+    // Optionally wait for error message here
+  });
+
+  it("Login with valid credentials", () => {
+    loginPage.fillUsername(testData.username);
+    loginPage.fillPassword(testData.password);
+    loginPage.submit();
+  });
+  after(() => {
+    cy.wait(3000);
+    loginPage.logout();
   });
 });
