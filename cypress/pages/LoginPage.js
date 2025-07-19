@@ -1,6 +1,7 @@
 class LoginPage {
   visit() {
     cy.visit("https://community.cloud.automationanywhere.digital");
+    return this;
   }
 
   fillUsername(username) {
@@ -8,18 +9,28 @@ class LoginPage {
       .first()
       .should("be.visible")
       .type(username);
+    return this;
   }
 
   fillPassword(password) {
     cy.get("[name='password']", { timeout: 10000 })
       .should("be.visible")
       .type(password);
+    return this;
   }
 
   submit() {
     cy.get("[name='submitLogin']", { timeout: 10000 })
       .should("be.visible")
       .click();
+    return this;
+  }
+
+  login(username, password) {
+    this.visit().fillUsername(username).fillPassword(password).submit(); // <- renamed from clickLogin() to submit()
+
+    cy.url({ timeout: 15000 }).should("include", "/#/home");
+    return this;
   }
 
   logout() {
