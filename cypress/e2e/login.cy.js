@@ -1,6 +1,6 @@
 /// <reference types = "cypress"/>
 
-import testData from "../fixtures/data.json";
+import testData from "../fixtures/testData.json";
 import LoginPage from "../pages/LoginPage";
 
 const loginPage = new LoginPage();

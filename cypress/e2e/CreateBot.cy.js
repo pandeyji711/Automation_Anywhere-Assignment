@@ -1,4 +1,4 @@
-import BotPage from "../pages/BotPage";
+import BotPage from "../pages/BotPage.js";
 // import AutomationPage from "../pages/AutomationPage.js";
 import MessageBoxPage from "../pages/MessageBoxPage.js";
 // import BotPage from "../pages/BotPage.js";
@@ -17,7 +17,7 @@ describe("Bot Creation Validation: Empty, Duplicate, and Valid Names", () => {
     // Open the bot creation dialog
     botPage.openCreateBotDialog();
 
-    // ----------- EMPTY BOT NAME TEST -----------
+    //empty bot name test
     cy.log("Testing empty bot name...");
     botPage.enterBotName(" "); // Blank/space
     botPage.enterDescription("Testing empty bot name");
@@ -26,7 +26,7 @@ describe("Bot Creation Validation: Empty, Duplicate, and Valid Names", () => {
     // Submit should remain disabled for empty bot name
     // botPage.elements.submitButton().should("be.disabled");
 
-    // ----------- DUPLICATE BOT NAME TEST -----------
+    //dublicate bot name test
     cy.log("Testing duplicate bot name...");
     botPage.enterBotName("TestBotByAnurag"); // Make sure this already exists
     botPage.enterDescription("Testing duplicate bot name");
@@ -34,9 +34,7 @@ describe("Bot Creation Validation: Empty, Duplicate, and Valid Names", () => {
     botPage.elements.submitButton().should("not.be.disabled");
     botPage.submitForm();
 
-    // Check for duplicate bot name toast message or UI feedback
-
-    cy.wait(5000); // short wait for toast to appear
+    cy.wait(5000); //  wait for toast to appear
 
     botPage.assertBotNameErrorIfExists().then((isDuplicate) => {
       if (isDuplicate) {
@@ -44,6 +42,7 @@ describe("Bot Creation Validation: Empty, Duplicate, and Valid Names", () => {
         botPage.enterDescription("Testing With Valid Unique Name");
         botPage.enterBotName(validBotName);
         botPage.submitForm();
+        cy.wait(3000);
       } else {
         cy.log("No duplicate name error detected.");
       }
@@ -52,7 +51,6 @@ describe("Bot Creation Validation: Empty, Duplicate, and Valid Names", () => {
     // Assertion: Bot successfully created (based on toast/dialog/URL)
     // cy.contains("Bot created").should("be.visible");
   });
-  cy.wait(5000);
   it("should insert Message Box step and validate", () => {
     // const Botmessage = "this is my newbotmessage ";
     cy.fixture("testData").then((data) => {

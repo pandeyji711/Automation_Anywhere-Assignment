@@ -1,6 +1,12 @@
 {
   "username": "anuragpandey88699@gmail.com",
  "password" : "09129709907aA@",
-  "bot_message": "My first bot_message"
-  
+  "bot_message": "My first bot_message",
+    "learningInstanceName": "AnuragLearningInstance",
+  "learningInstance": {
+    "name": "AnuragLearningInstanceBot",
+    "description": "Creating LearningInstance for Testing",
+    "fieldName": "LearningInstance Invoice",
+    "fieldLabel": "LearningInstance  Label"
+  }
 }

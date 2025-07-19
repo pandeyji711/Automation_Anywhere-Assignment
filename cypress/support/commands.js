@@ -27,7 +27,7 @@
 import LoginPage from "../pages/LoginPage.js";
 import testData from "../fixtures/testData.json";
 import AutomationPage from "../pages/AutomationPage.js";
-// ✅ Custom command: login
+//  Custom command: login
 Cypress.Commands.add("login", () => {
   const loginPage = new LoginPage();
   loginPage.login(testData.username, testData.password);
