@@ -1,60 +1,66 @@
 # 🤖 Cypress Automation - Bot Creation & Validation Suite
 
-This Cypress automation project is designed to test core functionalities like login, bot creation, and learning instance creation in a chatbot management system.
+This Cypress automation suite is designed to test core functionalities like **user login**, **bot creation**, and **learning instance creation** in an Automation Anywhere system.
+
+---
 
 ## 🚀 Features
 
-This suite tests the core functionalities of the application with different real-world input conditions.
+This suite simulates real-world scenarios to ensure the core components of the application work as expected.
 
 ---
 
-### **#login**
-*User authentication is validated through these key scenarios:*
+### 🔐 #Login
 
-1. **With Valid Credentials**
-   - **Description:** Valid user attempts to log in using correct username and password.
-   - **Expected Outcome:** ✅ Successful login and redirection to the dashboard.
+**User authentication is validated through the following scenarios:**
 
-2. **With Invalid Credentials**
-   - **Description:** Login attempt with wrong username or password.
-   - **Expected Outcome:** ❌ Error message like _"Invalid username or password"_ and stay on login page.
+1. **✅ Valid Credentials**
+   - **Description:** A user logs in with correct credentials.
+   - **Expected Outcome:** Successfully redirected to the dashboard.
+
+2. **❌ Invalid Credentials**
+   - **Description:** Login attempt with incorrect username or password.
+   - **Expected Outcome:** Error message shown (e.g., *"Invalid username or password"*) and user remains on login page.
 
 ---
 
-### **#createbot**
-*Bot creation functionality is tested using various input combinations:*
+### ⚙️ #CreateBot
 
-1. **Without a Name**
-   - **Description:** Attempt to create a bot without entering any name.
-   - **Expected Outcome:** ❌ Displays error stating the name is required.
+**Tests the bot creation functionality with different input conditions:**
 
-2. **With a Duplicate Name**
+1. **❌ Without a Name**
+   - **Description:** Attempt to create a bot without providing a name.
+   - **Expected Outcome:** Error shown stating that the bot name is required.
+
+2. **❌ Duplicate Name**
    - **Description:** Attempt to create a bot using an already existing name.
-   - **Expected Outcome:** ❌ Shows error like _"Bot name already exists. Please choose another."_.
+   - **Expected Outcome:** Displays error like *"Bot name already exists. Please choose another."*
 
-3. **With a Unique Name**
-   - **Description:** Create a bot with a unique, unused name.
-   - **Expected Outcome:** ✅ Bot created successfully and visible in the bot list.
+3. **✅ Unique Name**
+   - **Description:** Successfully create a bot with a unique name.
+   - **Expected Outcome:** Bot is created and listed in the bot section.
+
+---
+
+### 📚 #Learning Instance Creation
+
+**Covers all cases for creating a new learning instance:**
+
+1. **❌ Without Filling Fields**
+   - **Description:** Submit the form without entering required information.
+   - **Expected Outcome:** Form shows validation errors and submission is blocked.
+
+2. **❌ Duplicate Field Values**
+   - **Description:** Attempt with values already present in existing instances.
+   - **Expected Outcome:** Error message like *"This value already exists."* is shown.
+
+3. **✅ Valid Unique Values**
+   - **Description:** Submit the form with all valid and unique values.
+   - **Expected Outcome:** Learning instance is created successfully and displayed in the dashboard.
 
 ---
 
-### **#learning instance creation**
-*Tests the workflow of creating a learning instance:*
-
-1. **Without Any Field Submission**
-   - **Description:** User clicks submit without entering any data.
-   - **Expected Outcome:** ❌ Form shows required field errors and blocks submission.
-
-2. **With a Duplicate Value**
-   - **Description:** User enters duplicate field values (e.g., field name already used).
-   - **Expected Outcome:** ❌ Submission blocked with message like _"This value already exists."_.
-
-3. **With a Unique Value**
-   - **Description:** Form is submitted with all fields filled correctly with unique data.
-   - **Expected Outcome:** ✅ Learning instance created and listed in dashboard.
-
----
-### 🧠 Project Structure (POM)
+## 🧠 Project Structure (Page Object Model - POM)
 
 ```bash
 AnuragCypressproject/
