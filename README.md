@@ -1,4 +1,4 @@
-# 🤖 Cypress Automation - Bot Creation & Validation Suite
+# 🤖 Cypress Automation
 
 This Cypress automation suite is designed to test core functionalities like **user login**, **bot creation**, and **learning instance creation** in an Automation Anywhere system.
 
