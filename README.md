@@ -114,7 +114,7 @@ AnuragCypressproject/
 
 ```bash
 # 1. Clone the Repository
-git clone https://github.com/your-username/your-repo-name.git
+git clone https://github.com/pandeyji711/Automation_Anywhere-Assignment
 
 # 2. Navigate into the Project
 cd your-repo-name
