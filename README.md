@@ -117,7 +117,7 @@ AnuragCypressproject/
 git clone https://github.com/pandeyji711/Automation_Anywhere-Assignment
 
 # 2. Navigate into the Project
-cd your-repo-name
+cd Automation_Anywhere-Assignment
 
 # 3. Install Dependencies
 npm install
